@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint src test",
-    "test": "mocha 'test/**/*.spec.js'",
+    "test": "NODE_ENV=test mocha 'test/**/*.spec.js'",
     "now-start": "node ./src/index.js",
     "dev": "node ./src/index.js",
     "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public"

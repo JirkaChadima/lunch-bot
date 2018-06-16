@@ -4,9 +4,8 @@ const { expect } = require('chai');
 const request = require('supertest');
 const sinon = require('sinon');
 const config = require('../src/config');
-const resolver = require('../src/resolver');
 
-// Test configuration
+// Test configuration - required before loading resolver
 config.drivers = [{
   name: 'zomato',
 }];
@@ -17,6 +16,7 @@ config.restaurants = [{
     id: '16506111',
   },
 }];
+const resolver = require('../src/resolver');
 
 describe('API', function () {
   let server, getMenuStub;
@@ -27,8 +27,8 @@ describe('API', function () {
       displayName: 'U Sedlerů',
       dishes: [{
         name: 'Milanesa',
-        price: 12
-      }]
+        price: 12,
+      }],
     });
   });
   afterEach(() => {
