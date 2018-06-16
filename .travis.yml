@@ -12,7 +12,6 @@ jobs:
     script:
     - npm i -g now
     - npm run deploy
-    - npm run alias
 env:
   global:
   # ZOMATO

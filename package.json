@@ -8,7 +8,8 @@
     "test": "NODE_ENV=test mocha 'test/**/*.spec.js'",
     "now-start": "node ./src/index.js",
     "dev": "node ./src/index.js",
-    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public"
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public",
+    "alias": "now alias --token=$NOW_TOKEN"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "node": "10.3.0"
   },
   "now": {
-    "name": "lunch-bot"
+    "name": "lunch-bot",
+    "alias": "lunch-bot.jirkachadima.cz"
   }
 }
