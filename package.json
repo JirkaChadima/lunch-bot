@@ -1,0 +1,47 @@
+{
+  "name": "lunch-bot",
+  "version": "0.0.0",
+  "description": "Simple lunch bot meant to be used as a slack slash command",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src test",
+    "test": "mocha 'test/**/*.spec.js' --timeout 20000",
+    "now-start": "node ./src/index.js",
+    "dev": "node ./src/index.js",
+    "deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jirkachadima/lunch-bot.git"
+  },
+  "keywords": [
+    "winding-tree",
+    "api",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "WT Dev Team <support@winidngtree.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^5.1.0",
+    "sinon": "^4.5.0",
+    "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": "10.3.0"
+  },
+  "now": {
+    "name": "lunch-bot"
+  }
+}
