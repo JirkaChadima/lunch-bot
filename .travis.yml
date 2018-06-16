@@ -7,3 +7,15 @@ jobs:
   - stage: test
     script:
     - npm test
+  - stage: deploy
+    if: branch = deployment/fragaria
+    script:
+    - npm i -g now
+    - npm run deploy
+    - npm run alias
+env:
+  global:
+  # ZOMATO
+  - secure: MoYfohczlkXnqdd+w5Ek/tOguHQ8fHWlxqKq7clvOVAfzkLOv2I+D8rLo9VuajrzlZZglp3+Pm9jun5fPZbw+iVxKwkA88MiIgVYC81mjTO9WtY5mUNVd86mXybNR6k2IYPMMRo7bf/csgHLyVlQdUqiv31r6jV+EbXcyv7yyIPMj9ro7LtwFkx65SAuNT9muT/DNk0bJUlKbhNgUpB0t9Ntcc7EtKdo1QVm5uCh/NHbG9bcQUGNQz08WmUPn7gtaiiasdYQKPv/KMDfYvR5Fy3nXxMvPzbO0/pEpdQgZz9xyfuuJrDdk9ZyjZxQ4pj/cXKM7WBF2jwwg4Pl/py/cL4vuqguJFsB5zLI2JaDFtxLHe23Z5KxajQEQY2GnI4es5/9s47d8OyQSEtLJ+qKJpZAFoI6ivQU2SbgcxYEKQqXkLWbEifPUo5jV5Jsish73zG23CeTcYIPx3/LCDLjAG4FcrExc3CTrRzI+ugjz0V4upajbgz/4ErHRNsRGyEM6SbEC4bI3NHla/0yeil1XGW/TW19XMXnDUe25Fs2H9JKV2fXy+QapQWwrKXisOR/CRVoGyQ4YPudsGsDCvrIlNOz3nUoJr4cZb5ir3IpXOcJ21NFRK3q6QJtmeQkJT+sAPIr6j/2MDSwKftS72aIlvC0v8CzH8pOCVbxsCa11jI=
+  # NOW
+  - secure: DBhfUGujB3rXN1zT0GdHN/gg7KWVX9lbGdfXEJHorRpqIF0fAk1gfPbOJdJYpKhhbErEibRPAM0JVjbbmBhZ2T86897WOJR+XaoDRhKdQn6n+euIyyRYCnRHM9iHPHXBpZz0d+qxxVMj8/OgHGxmRYVKTrE5ZtdvhrQ6ub229TQ6q5yhMpvJOljEz9YJnQjIN6kdSEN7cjAZ9vO/bhHzxvTsiRZB+4HtmBsA/MIHCiwJPFPNKuiXYzg4J7U8yxm6xqmNWntlmK4z+J34EbuSbPmOR1DgLwFww70V9gU4QMmaaKnCDhFV+hKGbPHrZrrhJSp3uKmL+Tou51ErNqgBkkYalqYqkzNphSdvfksdLyCLcMPbkX0dvjeUm7FEXbX8s1/2RDHOMecrPKWLeRux/YCVhsu/zuyiwkBPun4qy6W1lw/O4HndETjmAuYmyB0mm1YwRUO42zTBPC9qcwWt4Y9NroWn+NpDD+dM4nJxWW8sRu27Gpaax8RWuuWOKoGTcq7tzluVAdZSXoJM6qPkvYc1fnrYCaHvGzKve9c4V7demYH+VOgWBqaz/IZ6xjhfAZmetAOQWfTagdEZXJixBNgZ9ph4YtNFpuNYG8MypQ3PjNWZlLSJWr1DtxKWBbOhEZHEAJIIKj6wEyM88Te6k+BfTjsSv8NGS7xYlFW41UI=
