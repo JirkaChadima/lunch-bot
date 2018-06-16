@@ -1,3 +1,7 @@
-module.exports = {
-    port: 8080
-};
+const localConfig = require('./config.local');
+
+module.exports = Object.assign({
+  port: 8080,
+  drivers: [],
+  restaurants: [],
+}, localConfig);

@@ -4,6 +4,18 @@ const { expect } = require('chai');
 const request = require('supertest');
 const config = require('../src/config');
 
+// Test configuration
+ config.drivers = [{
+  name: 'zomato',
+}];
+config.restaurants = [{
+  name: 'sedleri',
+  driver: 'zomato',
+  options: {
+    id: '16506111',
+  },
+}];
+
 describe('API', function () {
   let server;
   beforeEach(() => {
@@ -23,7 +35,7 @@ describe('API', function () {
         })
         .expect(200);
     });
-  })
+  });
   
   describe('POST /', () => {
     it('should return help with no slack message', async () => {
@@ -32,7 +44,7 @@ describe('API', function () {
         .type('form')
         .field('command', '/obed')
         .expect((res) => {
-          expect(res.text).to.match(/sedleri/i)
+          expect(res.text).to.match(/sedleri/i);
         })
         .expect(200);
     });
@@ -44,7 +56,7 @@ describe('API', function () {
         .field('command', '/obed')
         .field('text', 'alcron')
         .expect((res) => {
-          expect(res.text).to.match(/neumim/i)
+          expect(res.text).to.match(/neumim/i);
         })
         .expect(200);
     });
@@ -56,10 +68,9 @@ describe('API', function () {
         .field('command', '/obed')
         .field('text', 'sedleri')
         .expect((res) => {
-          expect(res.text).to.match(/menu/i)
+          expect(res.text).to.match(/menu/i);
         })
         .expect(200);
     });
-  })
-
+  });
 });

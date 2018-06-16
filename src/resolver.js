@@ -2,7 +2,7 @@ const config = require('./config');
 const zomatoDriver = require('./drivers/zomato');
 const availableDrivers = {
   zomato: zomatoDriver,
-}
+};
 
 let enabledDrivers = {};
 let restaurantDriverMapping = {};
@@ -30,5 +30,5 @@ module.exports = {
     }
     const driver = restaurantDriverMapping[restaurant];
     return driver.getMenu(restaurant);
-  }
+  },
 };

@@ -3,7 +3,6 @@ var bb = require('express-busboy');
 const app = express();
 
 const { name, version } = require('../package.json');
-const config = require('./config');
 const resolver = require('./resolver');
 
 bb.extend(app);
@@ -28,4 +27,3 @@ app.use('*', (req, res) => {
 module.exports = {
   app,
 };
-
