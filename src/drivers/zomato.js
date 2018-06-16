@@ -1,10 +1,43 @@
-const zomatoClient = (options) => {
+const fetch = require('node-fetch');
+
+let restaurants = {};
+let options = {};
+
+const BASE_URL = 'https://developers.zomato.com/api/v2.1/dailymenu?res_id=';
+
+const processResult = (displayName, dailyMenus) => {
+  let result = {
+    displayName,
+  };
+  if (!dailyMenus || !dailyMenus.length) {
+    return result;
+  }
+  result.dishes = [];
+  for (let dish of dailyMenus[0].daily_menu.dishes) {
+    result.dishes.push({
+      name: dish.dish.name,
+      price: dish.dish.price,
+    });
+  }
+  return result;
+};
+
+const zomatoClient = (opts) => {
+  options = Object.assign(options, opts);
   return {
     addRestaurant: (name, config) => {
-      
+      restaurants[name] = config;
     },
-    getMenu: (name) => {
-      return 'menu';
+    getMenu: async (name) => {
+      if (!restaurants[name]) {
+        throw new Error(`Unknown restaurant ${name}`);
+      }
+      const data = await fetch(BASE_URL + restaurants[name].id, {
+        headers: {
+          'user_key': options.apiKey,
+        },
+      });
+      return processResult(restaurants[name].displayName, (await data.json()).daily_menus);
     },
   };
 };

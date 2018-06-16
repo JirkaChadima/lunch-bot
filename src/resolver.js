@@ -20,8 +20,27 @@ for (let restaurant of config.restaurants) {
   }
 }
 
+const formatDailyMenu = (dailyMenu) => {
+  const today = new Date();
+  let formattedResult = [`**${dailyMenu.displayName}** - ${today.getDate()}. ${today.getMonth()}. ${today.getFullYear()}`];
+  if (!dailyMenu.dishes) {
+    formattedResult.push('Pro dnešek zatím nevíme...');
+  } else {
+    for (let dish of dailyMenu.dishes) {
+      if (!dish.price) {
+        formattedResult.push(`_${dish.name}_`);
+      } else {
+        formattedResult.push(`${dish.name} - ${dish.price}`);
+      }
+    }
+  }
+
+  return formattedResult.join('\r\n');
+};
+
 module.exports = {
-  resolve: (restaurant) => {
+  _enabledDrivers: enabledDrivers,
+  resolve: async (restaurant) => {
     if (!restaurant) {
       return Object.keys(restaurantDriverMapping).join(', ');
     }
@@ -29,6 +48,6 @@ module.exports = {
       return `**${restaurant}** neumim.`;
     }
     const driver = restaurantDriverMapping[restaurant];
-    return driver.getMenu(restaurant);
+    return formatDailyMenu(await driver.getMenu(restaurant));
   },
 };

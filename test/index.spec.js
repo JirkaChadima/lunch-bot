@@ -2,10 +2,12 @@
 /* eslint-disable no-unused-expressions */
 const { expect } = require('chai');
 const request = require('supertest');
+const sinon = require('sinon');
 const config = require('../src/config');
+const resolver = require('../src/resolver');
 
 // Test configuration
- config.drivers = [{
+config.drivers = [{
   name: 'zomato',
 }];
 config.restaurants = [{
@@ -17,11 +19,20 @@ config.restaurants = [{
 }];
 
 describe('API', function () {
-  let server;
+  let server, getMenuStub;
+
   beforeEach(() => {
     server = require('../src/index');
+    getMenuStub = sinon.stub(resolver._enabledDrivers.zomato, 'getMenu').resolves({
+      displayName: 'U Sedlerů',
+      dishes: [{
+        name: 'Milanesa',
+        price: 12
+      }]
+    });
   });
   afterEach(() => {
+    getMenuStub && getMenuStub.restore();
     server.close();
   });
 
@@ -68,7 +79,7 @@ describe('API', function () {
         .field('command', '/obed')
         .field('text', 'sedleri')
         .expect((res) => {
-          expect(res.text).to.match(/menu/i);
+          expect(res.text).to.match(/milanesa/i);
         })
         .expect(200);
     });

@@ -15,8 +15,8 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/', (req, res) => {
-  res.status(200).send(resolver.resolve(req.body.text));
+app.post('/', async (req, res) => {
+  res.status(200).send(await resolver.resolve(req.body.text));
 });
 
 // 404 handler
