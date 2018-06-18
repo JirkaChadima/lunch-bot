@@ -28,6 +28,7 @@ const formatDailyMenu = (dailyMenu) => {
   } else {
     for (let dish of dailyMenu.dishes) {
       if (!dish.price) {
+        formattedResult.push('\r\n');
         formattedResult.push(`_${dish.name}_`);
       } else {
         formattedResult.push(`${dish.name} - ${dish.price}`);
