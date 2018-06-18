@@ -22,12 +22,13 @@ for (let restaurant of config.restaurants) {
 
 const formatDailyMenu = (dailyMenu) => {
   const today = new Date();
-  let formattedResult = [`**${dailyMenu.displayName}** - ${today.getDate()}. ${today.getMonth()}. ${today.getFullYear()}`];
+  let formattedResult = [`*${dailyMenu.displayName}* - ${today.getDate()}. ${today.getMonth()}. ${today.getFullYear()}`];
   if (!dailyMenu.dishes) {
     formattedResult.push('Pro dnešek zatím nevíme...');
   } else {
     for (let dish of dailyMenu.dishes) {
       if (!dish.price) {
+        formattedResult.push('\r\n');
         formattedResult.push(`_${dish.name}_`);
       } else {
         formattedResult.push(`${dish.name} - ${dish.price}`);
