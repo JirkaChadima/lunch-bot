@@ -9,10 +9,10 @@ jobs:
     - npm test
   - stage: deploy
     if: branch = deployment/fragaria
+    install: true
     script:
     - npm i -g now
-    - npm run deploy
-    - npm run alias
+    - npm run deploy && npm run alias
 env:
   global:
   # ZOMATO

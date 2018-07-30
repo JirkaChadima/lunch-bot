@@ -6,9 +6,9 @@
   "scripts": {
     "lint": "eslint src test",
     "test": "NODE_ENV=test mocha 'test/**/*.spec.js'",
-    "now-start": "node ./src/index.js",
+    "start": "node ./src/index.js",
     "dev": "node ./src/index.js",
-    "deploy": "now -e NODE_ENV=production -e ZOMATO_API_KEY=$ZOMATO_API_KEY --token $NOW_TOKEN --npm --public",
+    "deploy": "now -e NODE_ENV=production -e ZOMATO_API_KEY=$ZOMATO_API_KEY --token $NOW_TOKEN --docker --public",
     "alias": "now alias --token=$NOW_TOKEN"
   },
   "repository": {
