@@ -17,6 +17,14 @@ module.exports = {
       },
     },
     {
+      name: 'sumava',
+      driver: 'zomato',
+      options: {
+        id: '16506684',
+       displayName: 'U Šumavy',
+      }
+    },
+    {
       name: 'krajina',
       driver: 'zomato',
       options: {
