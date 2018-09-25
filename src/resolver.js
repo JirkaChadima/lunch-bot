@@ -1,7 +1,9 @@
 const config = require('./config');
 const zomatoDriver = require('./drivers/zomato');
+const pricnyRezDriver = require('./drivers/pricny-rez');
 const availableDrivers = {
   zomato: zomatoDriver,
+  pricnyRez: pricnyRezDriver,
 };
 
 let enabledDrivers = {};
