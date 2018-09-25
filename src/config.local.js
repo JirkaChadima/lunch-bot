@@ -6,6 +6,12 @@ module.exports = {
         apiKey: process.env.ZOMATO_API_KEY,
       },
     },
+    {
+      name: 'pricnyRez',
+      options: {
+        url: 'http://www.pricnyrez.cz/cz/poledni-menu',
+      },
+    },
   ],
   restaurants: [
     {
@@ -30,6 +36,13 @@ module.exports = {
       options: {
         id: '16506026',
         displayName: 'Jiná krajina',
+      },
+    },
+    {
+      name: 'rez',
+      driver: 'pricnyRez',
+      options: {
+        displayName: 'Příčný řez',
       },
     },
   ],
