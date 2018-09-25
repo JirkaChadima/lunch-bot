@@ -46,6 +46,16 @@
   },
   "now": {
     "name": "lunch-bot",
-    "alias": "lunch-bot-fragaria"
+    "alias": "lunch-bot-fragaria",
+    "scale": {
+      "sfo1": {
+        "min": 0,
+        "max": 0
+      },
+      "bru1": {
+        "min": 0,
+        "max": 1
+      }
+    }
   }
 }
