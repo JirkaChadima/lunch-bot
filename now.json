@@ -1,0 +1,9 @@
+{
+  "name": "lunch-bot-2",
+  "alias": "lunch-bot-2-fragaria",
+  "version": 2,
+  "builds": [
+    {"src": "", "use": "@now/node-server"}
+  ],
+  "regions": ["bru"]
+}

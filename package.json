@@ -8,7 +8,7 @@
     "test": "NODE_ENV=test mocha 'test/**/*.spec.js'",
     "start": "node ./src/index.js",
     "dev": "node ./src/index.js",
-    "deploy": "now --regions bru -e NODE_ENV=production -e ZOMATO_API_KEY=$ZOMATO_API_KEY --token $NOW_TOKEN --docker --public",
+    "deploy": "now -e NODE_ENV=production -e ZOMATO_API_KEY=$ZOMATO_API_KEY --token $NOW_TOKEN",
     "alias": "now alias --token=$NOW_TOKEN"
   },
   "repository": {
@@ -43,9 +43,5 @@
   },
   "engines": {
     "node": "10.7.0"
-  },
-  "now": {
-    "name": "lunch-bot",
-    "alias": "lunch-bot-fragaria"
   }
 }
