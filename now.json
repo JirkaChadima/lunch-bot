@@ -3,7 +3,7 @@
   "alias": "lunch-bot-2-fragaria",
   "version": 2,
   "builds": [
-    {"src": "src/now-post.js", "use": "@now/node"}
+    {"src": "src/index.js", "use": "@now/node-server"}
   ],
   "regions": ["bru"]
 }
