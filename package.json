@@ -38,7 +38,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.0.0",
     "sinon": "^7.2.4",
-    "supertest": "^3.0.0"
+    "supertest": "^4.0.0"
   },
   "engines": {
     "node": "10.7.0"
