@@ -11,7 +11,7 @@ const processResult = (displayName, pageContent) => {
   };
   const root = parser.parse(pageContent);
   const items = root.querySelectorAll('.innerLeft .menuItem');
-  for(let i = 0; i < items.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     const nazev = items[i].querySelector('.nazev');
     const cena = items[i].querySelector('.cena');
     result.dishes.push({

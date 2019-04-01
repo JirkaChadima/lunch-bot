@@ -24,7 +24,7 @@ for (let restaurant of config.restaurants) {
 
 const formatDailyMenu = (dailyMenu) => {
   const today = new Date();
-  let formattedResult = [`*${dailyMenu.displayName}* - ${today.getDate()}. ${today.getMonth()+1}. ${today.getFullYear()}`];
+  let formattedResult = [`*${dailyMenu.displayName}* - ${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}`];
   if (!dailyMenu.dishes) {
     formattedResult.push('Pro dnešek zatím nevíme...');
   } else {
