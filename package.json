@@ -30,14 +30,14 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "eslint": "^5.14.1",
+    "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.0.0",
-    "sinon": "^7.2.4",
+    "sinon": "^7.3.1",
     "supertest": "^4.0.0"
   },
   "engines": {
