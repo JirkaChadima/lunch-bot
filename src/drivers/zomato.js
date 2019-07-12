@@ -1,19 +1,19 @@
 const fetch = require('node-fetch');
 
-let restaurants = {};
+const restaurants = {};
 let options = {};
 
 const BASE_URL = 'https://developers.zomato.com/api/v2.1/dailymenu?res_id=';
 
 const processResult = (displayName, dailyMenus) => {
-  let result = {
+  const result = {
     displayName,
   };
   if (!dailyMenus || !dailyMenus.length) {
     return result;
   }
   result.dishes = [];
-  for (let dish of dailyMenus[0].daily_menu.dishes) {
+  for (const dish of dailyMenus[0].daily_menu.dishes) {
     result.dishes.push({
       name: dish.dish.name,
       price: dish.dish.price,
@@ -34,7 +34,8 @@ const zomatoClient = (opts) => {
       }
       const data = await fetch(BASE_URL + restaurants[name].id, {
         headers: {
-          'user_key': options.apiKey,
+          // eslint-disable-next-line camelcase
+          user_key: options.apiKey,
         },
       });
       return processResult(restaurants[name].displayName, (await data.json()).daily_menus);

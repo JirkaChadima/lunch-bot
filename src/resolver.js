@@ -6,16 +6,16 @@ const availableDrivers = {
   pricnyRez: pricnyRezDriver,
 };
 
-let enabledDrivers = {};
-let restaurantDriverMapping = {};
+const enabledDrivers = {};
+const restaurantDriverMapping = {};
 
-for (let driver of config.drivers) {
+for (const driver of config.drivers) {
   if (availableDrivers[driver.name]) {
     enabledDrivers[driver.name] = availableDrivers[driver.name].configure(driver.options);
   }
 }
 
-for (let restaurant of config.restaurants) {
+for (const restaurant of config.restaurants) {
   if (enabledDrivers[restaurant.driver]) {
     enabledDrivers[restaurant.driver].addRestaurant(restaurant.name, restaurant.options);
     restaurantDriverMapping[restaurant.name] = enabledDrivers[restaurant.driver];
@@ -24,11 +24,11 @@ for (let restaurant of config.restaurants) {
 
 const formatDailyMenu = (dailyMenu) => {
   const today = new Date();
-  let formattedResult = [`*${dailyMenu.displayName}* - ${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}`];
+  const formattedResult = [`*${dailyMenu.displayName}* - ${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}`];
   if (!dailyMenu.dishes) {
     formattedResult.push('Pro dnešek zatím nevíme...');
   } else {
-    for (let dish of dailyMenu.dishes) {
+    for (const dish of dailyMenu.dishes) {
       if (!dish.price) {
         formattedResult.push('\r\n');
         formattedResult.push(`_${dish.name}_`);

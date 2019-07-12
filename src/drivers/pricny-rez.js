@@ -1,11 +1,11 @@
 const fetch = require('node-fetch');
 const parser = require('node-html-parser');
 
-let restaurants = {};
+const restaurants = {};
 let options = {};
 
 const processResult = (displayName, pageContent) => {
-  let result = {
+  const result = {
     displayName,
     dishes: [],
   };
